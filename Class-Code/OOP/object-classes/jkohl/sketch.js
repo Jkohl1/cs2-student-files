@@ -5,15 +5,31 @@
 /* A brief description of what the program is */
 
 
-let x,y,r;
-let xVel = 5;
-let yVel = 5;
+class Bubble {
+    constructor(_x, _y, _r) {
+        this.x = _x;
+        this.y = _y;
+        this.r = _r;
+    }
+    display(){
+        fill(200);
+        ellipse(this.x, this.y, this.r)
+    }
+    move(){
+        this.x += random(-width / 100, width / 100);
+        this.y += random(-height / 100, height / 100);
+    }
+    check(){
+        if(x + r >= width || x - r <= 0) xVel *= -1;
+        if(y + r >= height || y - r <= 0) yVel *= -1;
+    }
+}
+
+let bubbles = new Array(2);
 
 function setup() {
     createCanvas(600, 400);
-    x = width/2;
-    y = height/2;
-    r = 10;
+    noStroke();
 
     ellipseMode(RADIUS)
 }
@@ -21,19 +37,10 @@ function setup() {
 function draw() {
     background(0,50);
 
-    //display
-    fill(0,255,100);
-    stroke(255);
-    ellipse(x,y,r)
-
-    //move ball
-
-    x += xVel;
-    y += yVel;
-
-    //check edges
-
-    if(x + r >= width || x - r <= 0) xVel *= -1;
-    if(y + r >= height || y - r <= 0) yVel *= -1;
+    for(let i = 0; i < bubbles.length; ++i){
+        bubbles[i].appear();
+        bubbles[i].move();
+        bubbles[i].check();
+    }
 
 }
