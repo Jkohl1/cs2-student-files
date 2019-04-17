@@ -26,6 +26,9 @@ class Bubble {
 }
 
 let bubbles = [];
+// let bubble1;
+// let bubble2;
+// let bubble3;
 
 function setup() {
     createCanvas(600, 400);
@@ -33,8 +36,11 @@ function setup() {
 
     ellipseMode(RADIUS)
 
-    bubbles.push(new Bubble(250, 50, 60))
-    bubbles.push(new Bubble(30, 40, 50))
+    for(let i = 0; i <= 10; i++){
+        bubbles[i] = new Bubble(random(0, width),random(0, height),random(2,50));
+    }
+    // bubbles[0] = (new Bubble(200, 50, 60))
+    // bubbles[1] = (new Bubble(30, 40, 50))
 }
 
 function draw() {
@@ -45,5 +51,12 @@ function draw() {
         bubbles[i].move();
         bubbles[i].check();
     }
+
+    // for(let i = 0; i < bubbles.length; ++i){
+    //     bubbles[2].display();
+    //     bubbles[2].move();
+    //     bubbles[2].check();
+
+        
 
 }
