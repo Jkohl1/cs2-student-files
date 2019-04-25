@@ -45,7 +45,7 @@ class Walker{
     constructor(x,y){
         this.x = x;
         this.y = y;
-        this.r = 5;
+        this.r = random(2,8);
         this.static = false;
     }
 
