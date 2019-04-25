@@ -50,8 +50,8 @@ class Walker{
     }
 
     move(){
-        this.x += random(-3,3);
-        this.y += random(-3,3);
+        this.x += random(-this.r,this.r);
+        this.y += random(-this.r,this.r);
 
         if(this.x < 0) this.x = 0;
         if(this.y < 0) this.y = 0;
